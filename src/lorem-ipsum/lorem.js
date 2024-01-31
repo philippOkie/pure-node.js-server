@@ -1,0 +1,3 @@
+export default (req, res) => {
+  return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec massa eget urna aliquet congue. Suspendisse potenti. Maecenas sagittis metus et purus fermentum, a cursus nulla malesuada. Nulla facilisi. Vivamus feugiat odio id scelerisque cursus. Curabitur efficitur, nunc vitae scelerisque sodales, metus libero luctus augue, vel cursus libero metus id enim. Quisque feugiat, mauris vel cursus bibendum, quam sem pulvinar sapien, id imperdiet elit metus at ex. Ut vel dolor nec elit consectetur blandit. Suspendisse potenti. Vivamus vel scelerisque sem. Integer euismod dolor et nulla ullamcorper, vel condimentum augue vehicula.";
+};
