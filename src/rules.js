@@ -14,8 +14,17 @@ export default [
 
   [
     "/",
-    () => {
+    (args, { userAgent }) => {
       console.count("visit");
+      if (userAgent.includes("Linux")) {
+        console.count("visit from linux");
+      }
+      if (userAgent.includes("Macintosh") || userAgent.includes("iPhone")) {
+        console.count("visit from IOS or MacOS");
+      }
+      if (userAgent.includes("Windows")) {
+        console.count("visit from windows");
+      }
     },
   ],
 
