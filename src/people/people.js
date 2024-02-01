@@ -104,5 +104,5 @@ export default ({ property = null, value = null }, context) => {
     return filteredPeople;
   }
 
-  return people;
+  return { people: people };
 };

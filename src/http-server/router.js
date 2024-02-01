@@ -1,4 +1,5 @@
 import routes from "../routes.js";
+import { pub } from "../pubsub.js";
 
 export default (fn) => async (req, res) => {
   const url = new URL(req.url, "http://localhost");
@@ -7,7 +8,8 @@ export default (fn) => async (req, res) => {
 
   if (foundRoute) {
     try {
-      await foundRoute(req, res);
+      const data = await foundRoute(req, res);
+      pub(url.pathname, req.args, req.context, { data });
     } catch (err) {
       console.error(err);
       res.statusCode = 500;

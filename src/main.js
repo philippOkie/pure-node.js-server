@@ -3,6 +3,8 @@ import router from "./http-server/router.js";
 import args from "./http-server/args.js";
 import context from "./http-server/context.js";
 
+import "./http-server/observe.js";
+
 const PORT = process.env.PORT || 5000;
 
 const server = http.createServer(
