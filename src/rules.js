@@ -2,13 +2,13 @@ import { pub } from "./pubsub.js";
 
 setInterval(() => {
   pub("everyFiveSeconds");
-}, 5e3);
+}, 60e3);
 
 export default [
   [
     "everyFiveSeconds",
     () => {
-      console.log("some");
+      console.count("server is running for minutes:");
     },
   ],
 

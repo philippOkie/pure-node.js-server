@@ -1,5 +1,5 @@
 import { csv, textHtml, random, json } from "./http-server/wrapper.js";
-import people from "./people/people.js";
+import peopleService from "./people/people.js";
 
 import lorem from "./lorem-ipsum/lorem.js";
 import test from "./test/test.html.js";
@@ -22,13 +22,16 @@ const GET = {
 
   "/api/random": random(randomNum),
 
-  "/api/people": json(resolver(people)),
+  "/api/people": json(resolver(peopleService.getPeople)),
 };
 
 const POST = {
   "/api/sayHi": json((req, res) => {
     return req.args;
   }),
+  "/api/people/add": json(
+    resolver((args, context) => peopleService.addPerson(args, context))
+  ),
 };
 
 export default { GET, POST };
