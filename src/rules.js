@@ -1,10 +1,13 @@
 import { pub } from "./pubsub.js";
+import _trackUserEvent from "./tracking/_trackUserEvent.js";
 
 setInterval(() => {
   pub("everyFiveSeconds");
 }, 60e3);
 
 export default [
+  ["/", _trackUserEvent],
+
   [
     "everyFiveSeconds",
     () => {

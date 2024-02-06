@@ -19,12 +19,18 @@ function parseAcceptLanguage(header) {
 export default (fn) => (req, res) => {
   const acceptLanguageHeader = req.headers["accept-language"];
 
+  const parsedUrl = new URL(req.url, "http://localhost");
+
+  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
   const languages = acceptLanguageHeader
     ? parseAcceptLanguage(acceptLanguageHeader)
     : {};
   req.context = {
     languages,
     userAgent: req.headers["user-agent"],
+    pathname: parsedUrl.pathname,
+    ip,
   };
 
   return fn(req, res);
